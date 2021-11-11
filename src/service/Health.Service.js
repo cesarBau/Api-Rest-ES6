@@ -1,6 +1,6 @@
 const healthCheck = { message: 'Service is active' }
 
 module.exports = {
-    healthCheck
+  healthCheck,
 }
 export default null

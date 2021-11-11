@@ -11,12 +11,12 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(`/${Constans.CONTEXT_NAME}/${Constans.VERSION}/`, router)
 
-createConnection()
-  .then(() => {
-    app.listen(PORT, () => {
-      console.log(`Example app listening at http://localhost:${PORT}/${Constans.CONTEXT_NAME}/${Constans.VERSION}/`)
-    })
+createConnection().then(() => {
+  app.listen(PORT, () => {
+    console.log(
+      `Example app listening at http://localhost:${PORT}/${Constans.CONTEXT_NAME}/${Constans.VERSION}/`
+    )
   })
-
+})
 
 module.exports = app
