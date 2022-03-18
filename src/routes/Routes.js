@@ -1,10 +1,11 @@
 import express from 'express'
 import { HelloController } from '../controller/Health.Controller'
-import { simulacionController } from '../controller/simulacion.controller'
+import { CrudController } from '../controller/Crud.Controller'
 
 const router = express.Router()
 
 router.get('/', HelloController.healthCheck)
-router.get('/simulacion', simulacionController.simulacion)
+
+router.route('/crud').post(CrudController.saveCrud).get(CrudController.getCrud)
 
 module.exports = router
