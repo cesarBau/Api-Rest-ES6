@@ -10,8 +10,9 @@ const saveCrud = async (document) => {
 
 const getCrud = async () => {
   console.log('method getCrud Service started')
-  const result = await TestDAO.getTest()
-  console.log(`result => ${JSON.stringify(result)}`)
+  const response = await TestDAO.getTest()
+  console.log(`result => ${JSON.stringify(response)}`)
+  const result = { registries: response}
   console.log('method getCrud Service ending')
   return result
 }
