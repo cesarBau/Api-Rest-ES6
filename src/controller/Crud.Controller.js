@@ -12,7 +12,9 @@ const saveCrud = async (req, res) => {
 
 const getCrud = async (req, res) => {
   console.log('method getCrud Controller started')
-  const result = await ServiceCrud.getCrud()
+  const { query } = req
+  console.log(`query => ${JSON.stringify(query)}`)
+  const result = await ServiceCrud.getCrud(query)
   console.log(`result => ${JSON.stringify(result)}`)
   console.log('method getCrud Controller ending')
   res.json(result)

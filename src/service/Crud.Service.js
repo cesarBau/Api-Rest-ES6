@@ -1,3 +1,4 @@
+import _ from 'lodash'
 import { TestDAO } from '../dao/DaoTest'
 
 const saveCrud = async (document) => {
@@ -8,9 +9,14 @@ const saveCrud = async (document) => {
   return result
 }
 
-const getCrud = async () => {
+const getCrud = async (query) => {
   console.log('method getCrud Service started')
-  const response = await TestDAO.getTest()
+  let response = []
+  if (_.isEmpty(query)){
+    response = await TestDAO.getTest()
+  } else {
+    response = await TestDAO.getQueryTest(query)
+  }
   console.log(`result => ${JSON.stringify(response)}`)
   const result = { registries: response }
   console.log('method getCrud Service ending')

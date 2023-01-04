@@ -19,6 +19,16 @@ const getTest = async () => {
   return result
 }
 
+const getQueryTest = async (query) => {
+  console.log('method getQueryTest DAO started')
+  console.log(query)
+  const result = await Test.find(query)
+  const count = result.length
+  console.log(`registries: ${count}`)
+  console.log('method getQueryTest DAO ending')
+  return result
+}
+
 const getByIdTest = async (id) => {
   console.log('method getByIdTest DAO started')
   const result = await Test.findById(id)
@@ -46,6 +56,7 @@ export const TestDAO = {
   updateTest,
   deleteTest,
   getByIdTest,
+  getQueryTest,
 }
 
 export default null
