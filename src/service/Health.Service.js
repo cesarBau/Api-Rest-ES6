@@ -1,4 +1,4 @@
-const healthCheck = { message: 'Service is active' }
+const healthCheck = { message: 'Service is active now' }
 
 module.exports = {
   healthCheck,
