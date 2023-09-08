@@ -19,6 +19,29 @@ const delay = async (_, res) => {
   res.json(result)
 }
 
+const errors_400 = async (_, res) => {
+  console.log('method errors_400 Controller started')
+  const result = {}
+  console.log(`result => ${JSON.stringify(result)}`)
+  console.log('method errors_400 Controller ending')
+  res.status(400).json(result)
+}
+
+const errors_403 = async (_, res) => {
+  console.log('method errors_403 Controller started')
+  const result = {}
+  console.log(`result => ${JSON.stringify(result)}`)
+  console.log('method errors_403 Controller ending')
+  res.status(403).json(result)
+}
+
+const errors_500 = async (_, res) => {
+  console.log('method errors_500 Controller started')
+  const result = {}
+  console.log(`result => ${JSON.stringify(result)}`)
+  console.log('method errors_500 Controller ending')
+  res.status(500).json(result)
+}
 
 function sleep(ms) {
   return new Promise((resolve) => {
@@ -28,7 +51,10 @@ function sleep(ms) {
 
 export const HelloController = {
   healthCheck,
-  delay
+  delay,
+  errors_400,
+  errors_403,
+  errors_500
 }
 
 export default null
