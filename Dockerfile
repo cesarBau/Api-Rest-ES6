@@ -10,6 +10,7 @@ COPY . ./
 RUN npm install
 
 ENV URI=mongodb+srv://sootcrack:c5Xue6aKYntaVgQR@lalalla.ofbsf7i.mongodb.net/test
+ENV DELAY=5000
 
 EXPOSE 3000
 EXPOSE 27017
