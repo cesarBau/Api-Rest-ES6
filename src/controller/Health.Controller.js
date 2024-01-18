@@ -10,12 +10,14 @@ const healthCheck = async (req, res) => {
 
 const errorResponse = async (req, res) => {
   console.log('method errorResponse Controller started')
+  console.log(`Body petition => ${JSON.stringify(req.body)}`)
   const result = {
     'confirmation-id': null,
+    'partner-request-id': 1234567890,
     reason: {
       code: 'failure',
       'error-key': 'InternalError',
-      retriable: false,
+      retriable: true,
       'error-message': 'Predefined error'
     }
   }
@@ -24,22 +26,21 @@ const errorResponse = async (req, res) => {
   res.json(result)
 }
 
-const correctResponse = async (req, res) => {
-  console.log('method correctResponse Controller started')
+const errorCancelResponse = async (req, res) => {
+  console.log('method errorCancelResponse Controller started')
+  console.log(`Body petition => ${JSON.stringify(req.body)}`)
   const result = {
-    'confirmation-id': 914567181919,
+    'confirmation-id': null,
     'partner-request-id': 1234567890,
-    'activation-data': {
-      deeplink: 'https://tv.apple.com/us/subscription/link?product=PPCC_ATV_HB&id=1472441559&token=eyJhbGciOiJIUzI1NiJ9',
-      expiration: '2022-11-22 04:44:16'
-    },
     reason: {
-      code: 'success',
-      retriable: false
+      code: 'failure',
+      'error-key': 'InternalError',
+      retriable: true,
+      'error-message': 'Predefined error'
     }
   }
   console.log(`result => ${JSON.stringify(result)}`)
-  console.log('method correctResponse Controller ending')
+  console.log('method errorCancelResponse Controller ending')
   res.json(result)
 }
 
@@ -47,7 +48,7 @@ const correctResponse = async (req, res) => {
 export const HelloController = {
   healthCheck,
   errorResponse,
-  correctResponse
+  errorCancelResponse
 }
 
 export default null
