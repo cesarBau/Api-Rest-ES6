@@ -11,7 +11,7 @@ RUN npm install
 
 ENV URI=mongodb+srv://sootcrack:c5Xue6aKYntaVgQR@lalalla.ofbsf7i.mongodb.net/test
 
-EXPOSE 3000
+EXPOSE 8080
 EXPOSE 27017
 
 
