@@ -1,36 +1,32 @@
 {
-  "name": "em6",
+  "name": "api-rest-es6",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "update to package json",
+  "main": ".eslintrc.js",
   "scripts": {
     "start": "babel-node src/index.js",
     "debug": "nodemon --exec babel-node src/index.js",
     "lint": "eslint .",
     "lint-fix": "eslint . --fix"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.19.0",
-    "express": "^4.17.1",
+    "@babel/cli": "^7.23.9",
+    "@babel/core": "^7.23.9",
+    "@babel/node": "^7.23.9",
+    "@babel/preset-env": "^7.23.9",
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2",
     "lodash": "^4.17.21",
-    "moment": "^2.29.1",
-    "mongoose": "^6.0.12"
+    "moment": "^2.30.1",
+    "mongoose": "^8.1.1",
+    "nodemon": "^3.0.3",
+    "prettier": "^3.2.4"
   },
   "devDependencies": {
-    "@babel/cli": "^7.20.7",
-    "@babel/core": "^7.20.12",
-    "@babel/eslint-parser": "^7.16.3",
-    "@babel/node": "^7.16.0",
-    "@babel/preset-env": "^7.20.2",
-    "eslint": "^8.2.0",
+    "eslint": "^8.56.0",
     "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-import": "^2.25.3",
-    "eslint-plugin-prettier": "^4.0.0",
-    "nodemon": "^2.0.14",
-    "prettier": "^2.4.1"
+    "eslint-plugin-import": "^2.29.1"
   }
 }

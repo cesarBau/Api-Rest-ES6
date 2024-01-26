@@ -1,6 +1,6 @@
 # Use the official lightweight Python image.
 # https://hub.docker.com/_/python
-FROM node:18-alpine3.16
+FROM node:21.6-alpine3.18
 
 # Copy local code to the container image.
 ENV APP_HOME /app
