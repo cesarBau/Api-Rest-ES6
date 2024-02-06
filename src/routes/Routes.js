@@ -9,7 +9,7 @@ router.get('/petition', PetitionController.getPetition)
 router.delete('/petition', PetitionController.deletePetition)
 router.post('/entitlement/create', PetitionController.errorResponse)
 router.post('/entitlement/cancel', PetitionController.errorCancelResponse)
-router.post('/create',PetitionController.intercepActivate)
+router.post('/intercept', PetitionController.intercePetition)
 
 
 

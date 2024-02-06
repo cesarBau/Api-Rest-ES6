@@ -20,7 +20,7 @@ const typeTask = (query, body) => {
 
 function delay() {
     return new Promise(function (resolve) {
-        setTimeout(resolve, 4000);
+        setTimeout(resolve, 5000);
     })
 }
 

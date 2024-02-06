@@ -1,18 +1,19 @@
 import _ from 'lodash'
 import { PetitionDAO } from '../dao/DaoPetition'
 import { Utils } from '../commons/utils'
+import logger from '../logger/logger'
 
 const savePetition = async (document) => {
-  console.log('method savePetition Service started')
-  console.log(`document => ${JSON.stringify(document)}`)
+  logger.info('method savePetition Service started')
+  logger.info(`document => ${JSON.stringify(document)}`)
   const result = await PetitionDAO.savePetition(document)
-  console.log(`result => ${JSON.stringify(result)}`)
-  console.log('method savePetition Service ending')
+  logger.info(`result => ${JSON.stringify(result)}`)
+  logger.info('method savePetition Service ending')
   return Utils.errorResponse
 }
 
 const getPetition = async (query) => {
-  console.log('method getPetition Service started')
+  logger.info('method getPetition Service started')
   let result
   if (_.isEmpty(query)){
     result = await PetitionDAO.getPetition()
@@ -28,15 +29,15 @@ const getPetition = async (query) => {
         registries: values
     }
   }
-  console.log(`result => ${JSON.stringify(result.count)}`)
-  console.log('method getPetition Service ending')
+  logger.info(`result => ${JSON.stringify(result.count)}`)
+  logger.info('method getPetition Service ending')
   return result
 }
 
 const deletePetition = async () => {
-  console.log('method deletePetition Service started')
+  logger.info('method deletePetition Service started')
   await PetitionDAO.deletePetition()
-  console.log('method deletePetition Service ending')
+  logger.info('method deletePetition Service ending')
 }
 
 
