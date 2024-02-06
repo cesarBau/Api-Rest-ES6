@@ -1,5 +1,4 @@
 import axios from 'axios'
-import { ServicePetition } from '../service/Petition.Service'
 import { Utils } from '../commons/utils'
 import { validationRedis } from '../dao/DaoRedis'
 import logger from '../logger/logger'
@@ -7,10 +6,8 @@ import logger from '../logger/logger'
 const errorResponse = async (req, res) => {
   logger.info('method errorResponse Controller started')
   const { body } = req
-  const petition = Utils.typeTask(1, body)
-  logger.info(`requestBody => ${JSON.stringify(body)}`)
-  const result = await ServicePetition.savePetition(petition)
-  logger.info(`result => ${JSON.stringify(result)}`)
+  logger.info(`create service => ${JSON.stringify(body)}`)
+  const result = Utils.errorResponse
   logger.info('method errorResponse Controller ending')
   res.json(result)
 }
@@ -18,29 +15,10 @@ const errorResponse = async (req, res) => {
 const errorCancelResponse = async (req, res) => {
   logger.info('method errorCancelResponse Controller started')
   const { body } = req
-  const petition = Utils.typeTask(2, body)
-  logger.info(`requestBody => ${JSON.stringify(body)}`)
-  const result = await ServicePetition.savePetition(petition)
-  logger.info(`result => ${JSON.stringify(result)}`)
+  logger.info(`cancel service => ${JSON.stringify(body)}`)
+  const result = Utils.errorResponse
   logger.info('method errorCancelResponse Controller ending')
   res.json(result)
-}
-
-const getPetition = async (req, res) => {
-  logger.info('method getPetition Controller started')
-  const { query } = req
-  logger.info(`query => ${JSON.stringify(query)}`)
-  const result = await ServicePetition.getPetition(query)
-  logger.info(`result => ${JSON.stringify(result)}`)
-  logger.info('method getPetition Controller ending')
-  res.json(result)
-}
-
-const deletePetition = async (_req, res) => {
-  logger.info('method deletePetition Controller started')
-  await ServicePetition.deletePetition()
-  logger.info('method deletePetition Controller ending')
-  res.status(204).json({})
 }
 
 const intercePetition = async (req, res) => {
@@ -73,8 +51,6 @@ const intercePetition = async (req, res) => {
 export const PetitionController = {
   errorResponse,
   errorCancelResponse,
-  getPetition,
-  deletePetition,
   intercePetition
 }
 
